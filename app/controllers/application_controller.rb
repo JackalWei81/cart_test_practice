@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   private
   def set_cart
-    @cart = Cart.new
+    if session["my_cart_session_123"]
+      @cart = Cart.build_from_hash(session["my_cart_session_123"])
+    else
+      @cart = Cart.new
+    end
   end
 end
