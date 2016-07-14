@@ -4,5 +4,9 @@ Rails.application.routes.draw do
       put :add_to_cart
     end
   end
-  root "pages#index"
+
+  #單數會少了index page，使用only，為只用列出的action
+  resource :cart, only: [:show, :destroy]
+
+  root "products#index"
 end

@@ -34,12 +34,9 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <% unless @cart.empty? %>
-        <li>
-          <a href="#">Cart
-          <span class="badge" ><%= @cart.items.count %></span></a>
-        </li>
-        <% end %>
+        <%# 要盡量讓render裡面不要在空氣中抓變數，@variable或是抓資料庫，應該要採用參數傳遞方式 %>
+        <%# 只要有傳遞參數locals:{}，前面就一定要補partial: ，為一組的使用方式 %>
+        <%= render partial: "shared/cart", locals: {cart: @cart} %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
