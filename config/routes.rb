@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   end
 
   #單數會少了index page，使用only，為只用列出的action
-  resource :cart, only: [:show, :destroy]
+  resource :cart, only: [:show, :destroy] do
+    collection do
+      get :checkout
+    end
+  end
 
   root "products#index"
 end
