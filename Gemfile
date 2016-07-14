@@ -17,7 +17,7 @@ gem "autoprefixer-rails"
 
 # form
 gem "simple_form"
-gem 'slim'
+gem "slim"
 
 # user
 gem "devise"
